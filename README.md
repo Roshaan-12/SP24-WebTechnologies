@@ -6,7 +6,7 @@ This repository contains code files and resources related to the Web Technologie
 
 This folder contains assignments completed as part of the course.
 
-- [Assignment 1](assignments/assignment1/): Creating a simple CV out of plain HTML and CSS.
+- Assignment 1: Creating a simple CV out of plain HTML and CSS.
 
 ## Lab Tasks
 
