@@ -1,5 +1,75 @@
-h1{
+
+h1 {
     text-align: center;
-    font-family: sans-serif,'Times New Roman', Times, serif;
+    font-family: sans-serif, 'Times New Roman', Times, serif;
+    text-shadow: 10px;
+}
+
+body {
+    background-color: aqua;
+}
+
+.inner {
+    background-color: beige;
+    box-sizing: border-box;
+    max-width: 900px;
+    box-shadow: 10px 10px 5px black;
+    margin: 60px auto;
+    height: 2000px;
+    padding: 20px;
+}
+
+h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
     text-decoration-line: underline;
+    text-decoration-color: black;
+    padding: 10px;
+}
+
+.CI {
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-right: 30px;
+}
+
+.CI img {
+    border-radius: 20px;
+    float: right;
+    padding-right: 200px;
+    height: 250px;
+    width: 150px;
+    padding-right: 30px;
+    padding-bottom: 60px;
+    transition: width 2s, height 4s;
+}
+.CI img:hover{
+    width: 300px;
+}
+
+.AR {
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.Edu {
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.CS {
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.CS img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.Skills {
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
