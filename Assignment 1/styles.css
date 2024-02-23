@@ -15,7 +15,7 @@ body {
     max-width: 900px;
     box-shadow: 10px 10px 5px black;
     margin: 60px auto;
-    height: 2000px;
+    height: 2100px;
     padding: 20px;
 }
 
@@ -34,17 +34,19 @@ h2 {
 }
 
 .CI img {
-    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     float: right;
-    padding-right: 200px;
+    padding-right: 0px;
     height: 250px;
-    width: 150px;
-    padding-right: 30px;
-    padding-bottom: 60px;
+    width: 250px;
+    padding-right: 20px;
+    padding-bottom: 100px;
     transition: width 2s, height 4s;
 }
 .CI img:hover{
-    width: 300px;
+    height: 290px;
+    width: 320px;
 }
 
 .AR {
@@ -63,6 +65,7 @@ h2 {
 }
 
 .CS img {
+    border-radius: 50px;
     display: block;
     margin-left: auto;
     margin-right: auto;
