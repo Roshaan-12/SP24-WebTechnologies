@@ -46,6 +46,12 @@ body{
     color: antiquewhite;
     font-size: 16px;
 }
+i{
+    position: absolute;
+    color: antiquewhite;
+    top: 13px;
+    right: 0;
+}
 input::placeholder{
     color: antiquewhite;
 }
@@ -62,5 +68,22 @@ input::placeholder{
     box-shadow: 3px 0 10px rgba(0,0,0,.5);
 }
 .group{
-    
+    display: flex;
+    justify-content: space-between;
+}
+.group span a{
+    color: antiquewhite;
+    position: relative;
+    top: 10px;
+    text-decoration: none;
+    font-weight: 500;
+}
+.group a:Focus{
+    text-decoration: underline;
+}
+#result{
+    color: antiquewhite;
+    font-weight: 600;
+    position: relative;
+    top: 25px;
 }

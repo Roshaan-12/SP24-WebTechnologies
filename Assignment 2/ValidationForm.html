@@ -5,22 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
     <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="container">
         <div class="form-box">
-            <form action="" name="formfill">
+            <form action="" name="formfill" onsubmit="return validation()">
                 <h2>Register To Contact Us!</h2>
+                <p id="result">Enter Username</p>
                 <div class="input-box">
+                    <i class='bx bx-user'></i>
                     <input type="text" name="Username" placeholder="Username">
                 </div>
                 <div class="input-box">
+                    <i class='bx bx-envelope'></i>
                     <input type="email" name="Email" placeholder="Email">
                 </div>
                 <div class="input-box">
+                    <i class='bx bx-lock-alt'></i>
                     <input type="password" name="Password" placeholder="Password">
                 </div>
                 <div class="input-box">
+                    <i class='bx bx-lock-alt'></i>
                     <input type="password" name="cPassword" placeholder="Confirm Password">
                 </div>
                 <div class="button">
