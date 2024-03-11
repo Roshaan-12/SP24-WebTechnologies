@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story CRUD Operations</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Story CRUD Operations</h2>
+
+    <!-- Create Form -->
+    <form id="createForm">
+        <div class="form-group">
+            <label for="createTitle">Title:</label>
+            <input type="text" class="form-control" id="createTitle" required value="new story">
+        </div>
+        <div class="form-group">
+            <label for="createContent">Content:</label>
+            <textarea class="form-control" id="createContent" rows="3" required>New Story Content</textarea>
+        </div>
+        <button id="createBtn" type="submit" class="btn btn-primary">Create</button>
+        <button id="clearBtn" type="submit" class="btn btn-primary" style="display: none;">Clear</button>
+    </form>
+
+    <hr>
+
+    <!-- Display Stories -->
+    <div id="storiesList"></div>
+
+</div>
+
+<!-- Include jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="./jqcrud.js"></script>
+
+
+</body>
+</html>
+// Function to fetch and display stories
+function displayStories() {
+  $.ajax({
+    url: "https://usmanlive.com/wp-json/api/stories",
+    method: "GET",
+    dataType: "json",
+    success: function (data) {
+      var storiesList = $("#storiesList");
+      storiesList.empty();
+
+      $.each(data, function (index, story) {
+        storiesList.append(
+          `<div class="mb-3">
+                <h3>${story.title}</h3>
+                <div>${story.content}</div>
+                <div>
+                    <button class="btn btn-info btn-sm mr-2 btn-edit" data-id="${story.id}">Edit</button>
+                    <button class="btn btn-danger btn-sm mr-2 btn-del" data-id="${story.id}">Delete</button>
+                </div>
+            </div>
+            <hr />
+            `
+        );
+      });
+    },
+    error: function (error) {
+      console.error("Error fetching stories:", error);
+    },
+  });
+}
+// Function to delete a story
+function deleteStory() {
+  let storyId = $(this).attr("data-id");
+  $.ajax({
+    url: "https://usmanlive.com/wp-json/api/stories/" + storyId,
+    method: "DELETE",
+    success: function () {
+      displayStories(); // Refresh the list after deleting a story
+    },
+    error: function (error) {
+      console.error("Error deleting story:", error);
+    },
+  });
+}
+function handleFormSubmission(event) {
+  event.preventDefault();
+  let storyId = $("#createBtn").attr("data-id");
+  var title = $("#createTitle").val();
+  var content = $("#createContent").val();
+  if (storyId) {
+    $.ajax({
+      url: "https://usmanlive.com/wp-json/api/stories/" + storyId,
+      method: "PUT",
+
+      data: { title, content },
+      success: function () {
+        displayStories(); // Refresh the list after creating a new story
+      },
+      error: function (error) {
+        console.error("Error creating story:", error);
+      },
+    });
+  } else {
+    $.ajax({
+      url: "https://usmanlive.com/wp-json/api/stories",
+      method: "POST",
+      data: { title, content },
+      success: function () {
+        displayStories(); // Refresh the list after creating a new story
+      },
+      error: function (error) {
+        console.error("Error creating story:", error);
+      },
+    });
+  }
+}
+function editBtnClicked(event) {
+  event.preventDefault();
+  let storyId = $(this).attr("data-id");
+  $.ajax({
+    url: "https://usmanlive.com/wp-json/api/stories/" + storyId,
+    method: "GET",
+    success: function (data) {
+      console.log(data);
+      $("#clearBtn").show();
+      $("#createTitle").val(data.title);
+      $("#createContent").val(data.content);
+      $("#createBtn").html("Update");
+      $("#createBtn").attr("data-id", data.id);
+    },
+    error: function (error) {
+      console.error("Error deleting story:", error);
+    },
+  });
+}
+$(document).ready(function () {
+  // Initial display of stories
+
+  displayStories();
+  $(document).on("click", ".btn-del", deleteStory);
+  $(document).on("click", ".btn-edit", editBtnClicked);
+  // Create Form Submission
+  $("#createForm").submit(handleFormSubmission);
+  $("#clearBtn").on("click", function (e) {
+    e.preventDefault();
+    $("#clearBtn").hide();
+    $("#createBtn").removeAttr("data-id");
+    $("#createBtn").html("Create");
+    $("#createTitle").val("");
+    $("#createContent").val("");
+  });
+});

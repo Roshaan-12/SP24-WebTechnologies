@@ -4,7 +4,7 @@ function validation(){
         return false;
     }
     else  if(document.formfill.Username.value.length<6){
-        document.getElementById("result").innerHTML="Atleast 6 Letters";
+        document.getElementById("result").innerHTML=" Username Length Must Be Atleast 6 Letters";
         return false;
     }
     else  if(document.formfill.Email.value==""){
