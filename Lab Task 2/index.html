@@ -8,21 +8,19 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
 <div class="container mt-5">
-    <h2 class="mb-4">Story CRUD Operations</h2>
-
+    <h2 class="mb-4">Restaurant Reviews</h2>
     <!-- Create Form -->
     <form id="createForm">
         <div class="form-group">
-            <label for="createTitle">Title:</label>
-            <input type="text" class="form-control" id="createTitle" required value="new story">
+            <label for="createTitle">Rating:</label>
+            <input type="text" class="form-control" id="createTitle" required placeholder="Rate food /5">
         </div>
         <div class="form-group">
-            <label for="createContent">Content:</label>
-            <textarea class="form-control" id="createContent" rows="3" required>New Story Content</textarea>
+            <label for="createContent">Comments:</label>
+            <textarea class="form-control" id="createContent" rows="3" required>Describe Your Experience...</textarea>
         </div>
-        <button id="createBtn" type="submit" class="btn btn-primary">Create</button>
+        <button id="createBtn" type="submit" class="btn btn-primary">Submit</button>
         <button id="clearBtn" type="submit" class="btn btn-primary" style="display: none;">Clear</button>
     </form>
 
