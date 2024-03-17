@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Story CRUD Operations</title>
+    <title>Restaurant Reviews</title>
     <!-- Include Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container mt-5">
     <h2 class="mb-4">Restaurant Reviews</h2>
-    <!-- Create Form -->
-    <form id="createForm">
+
+    <!-- Review Form -->
+    <form id="reviewForm">
         <div class="form-group">
-            <label for="createTitle">Rating:</label>
-            <input type="text" class="form-control" id="createTitle" required placeholder="Rate food /5">
+            <label for="Food">Enter the name of the food:</label>
+            <textarea class="form-control" id="foodName" rows="1" required placeholder="Write the name of the food here..."></textarea>
+            <label for="ratind">Rate your food:</label>
+            <textarea class="form-control" id="rating" rows="1" required placeholder="Rating..."></textarea>
+            <label for="review">Write a Review:</label>
+            <textarea class="form-control" id="comments" rows="3" required placeholder="Write your review here..."></textarea>                        
         </div>
-        <div class="form-group">
-            <label for="createContent">Comments:</label>
-            <textarea class="form-control" id="createContent" rows="3" required>Describe Your Experience...</textarea>
-        </div>
-        <button id="createBtn" type="submit" class="btn btn-primary">Submit</button>
-        <button id="clearBtn" type="submit" class="btn btn-primary" style="display: none;">Clear</button>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+        <button type="button" id="clearForm" class="btn btn-secondary">Clear</button>
     </form>
 
     <hr>
 
-    <!-- Display Stories -->
-    <div id="storiesList"></div>
-
+    <!-- Display Reviews -->
+    <h2>Current Reviews</h2>
+    <div id="reviewsList"></div>
 </div>
 
 <!-- Include jQuery and Bootstrap JS -->
