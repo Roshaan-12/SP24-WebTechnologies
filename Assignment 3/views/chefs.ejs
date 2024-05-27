@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Chefs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .chef-item {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .chef-item img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .pagination a {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 0 5px;
+            background-color: #f4f4f4;
+            color: #333;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <% title = 'Our Chefs' %>
+    <div class="container">
+        <h2>Meet Our Chefs</h2>
+        <% chefs.forEach(chef => { %>
+            <div class="chef-item">
+                <img src="<%= chef.imageURL %>" alt="<%= chef.name %>">
+                <h3><%= chef.name %></h3>
+                <p>Rating: <%= chef.rating %></p>
+                <p>Availability: <%= chef.availability %></p>
+                <p>Speciality: <%= chef.specialties %></p>
+            </div>
+        <% }) %>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <% if (page > 1) { %>
+                <a href="/landingPage/chefs?page=<%= page - 1 %>" class="<%= page === 1 ? 'disabled' : '' %>">&laquo; Previous</a>
+            <% } %>
+            <% for (let i = 1; i <= totalPages; i++) { %>
+                <a href="/landingPage/chefs?page=<%= i %>" class="<%= i === page ? 'active' : '' %>"><%= i %></a>
+            <% } %>
+            <% if (page < totalPages) { %>
+                <a href="/landingPage/chefs?page=<%= page + 1 %>" class="<%= page === totalPages ? 'disabled' : '' %>">Next &raquo;</a>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

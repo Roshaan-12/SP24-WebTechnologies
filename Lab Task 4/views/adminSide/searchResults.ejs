@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .food-item {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .food-item:last-child {
+            border-bottom: none;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            margin: 0 5px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .pagination a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Search Results for "<%= searchQuery %>"</h2>
+        <div class="food-items">
+            <% foodItems.forEach(foodItem => { %>
+                <div class="food-item">
+                    <h3><%= foodItem.name %></h3>
+                    <p>Price: $<%= foodItem.price %></p>
+                    <p>Category: <%= foodItem.category %></p>
+                </div>
+            <% }) %>
+        </div>
+        <div class="pagination">
+            <% if (page > 1) { %>
+                <a href="?q=<%= searchQuery %>&page=<%= page - 1 %>">Previous</a>
+            <% } %>
+            <% if (page < totalPages) { %>
+                <a href="?q=<%= searchQuery %>&page=<%= page + 1 %>">Next</a>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

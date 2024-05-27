@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/landpage.css">
+    <script src="https://kit.fontawesome.com/9ada2e470e.js" crossorigin="anonymous"></script>
+    <title><%= title %></title>
+</head>
+<body>
+    <div id="header">
+        <nav id="navbar">
+          <a href="landingPage/admin"><h1>Papilles Bistro</h1></a>
+            <ul>
+              <li><a href="/landingPage">Home</a></li>
+              <li><a href="/landingPage/reviews">Reviews</a></li>
+              <li><a href="/landingPage/chefs">Chef</a></li>
+              <li><a href="/landingPage#about">About</a></li>
+              <li><a href="/landingPage#contact">Contact</a></li>
+            </ul>
+            <div id="phone">
+                <a href="tel:+923379524115">+923379524115</a>
+            </div>
+        </nav>
+        <div id="mobile_menu">
+            <ul>
+              <li><a href="/landingPage">Home</a></li>
+              <li><a href="#menu">Menu</a></li>
+              <li><a href="/landingPage/chefs">Chef</a></li>
+              <li><a href="/landingPage#about">About</a></li>
+              <li><a href="/landingPage#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <%- body %>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<% title = 'Papilles Bistro' %>
+<div id="hero">
+    <div id="hero_content">
+        <h1>Papilles Bistro</h1>
+        <h2>High Quality Italian Cuisine</h2>
+        <h2>---------------</h2>
+        <a href="#menu">Menu</a>
+    </div>
+</div>
+
+<div id="menu">
+    <h1 id="section">Menu</h1>
+    <div id="menu_row">
+        <% Object.keys(menuItems).forEach(category => { %>
+        <div id="menu_col">
+            <h2><%= category %></h2>
+            <div class="menu_items">
+                <% menuItems[category].forEach(item => { %>
+                <div class="box">
+                    <div id="image">
+                        <img src="<%= item.imageURL %>">
+                    </div>
+                    <div>
+                        <h3><%= item.name %></h3>
+                        <h4>$<%= item.price %></h4>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+
+<div id="about">
+    <h1 id="section">About</h1>
+    <div id="about_row">
+        <div class="about_col">
+            <h1>About Us</h1>
+            <p>Indulge in the rich flavors of Italy at our charming restaurant.
+                Transport yourself to the sun-kissed streets of Tuscany with each bite.
+                Savor the warmth of traditional Italian hospitality in every dish we serve.
+                From classic pasta dishes to delectable desserts, our menu celebrates the essence of Italian cuisine.
+                Whether you're craving a comforting bowl of spaghetti or a crispy wood-fired pizza, we invite you to experience the taste of Italy with us.
+                Buon appetito!</p>
+        </div>
+        <div class="about_col">
+            <div id="about_img">
+                <img src="/images/chef.jpg">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="contact">
+    <h1 id="section">Contact</h1>
+    <div id="contact_row">
+        <div class="contact_col">
+            <div>
+                <p>
+                    <i class="fa fa-map-marker"></i>
+                    Luminara Alta, Province of Bellavista, Sicily
+                </p>
+                <p>
+                    <a href="mailto:papillebistro@gmail.com">
+                        <i class="fa fa-envelope"></i>
+                        papillebistro@gmail.com
+                    </a>
+                </p>
+                <p>
+                    <a href="+923324627715">
+                        <i class="fa fa-phone-square"></i>
+                        +923324627715
+                    </a>
+                </p>
+                <h3>Follow Us</h3>
+                <p id="social">
+                    <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-x-twitter"></i></a>
+                </p>
+            </div>
+        </div>
+        <div class="contact_col">
+            <form>
+                <h2>Get In Touch</h2>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="text" placeholder="Subject">
+                <textarea rows="6" placeholder="Type Message"></textarea>
+                <button>Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>

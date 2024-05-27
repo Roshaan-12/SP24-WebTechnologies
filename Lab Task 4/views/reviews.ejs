@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Reviews</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Restaurant Reviews</h2>
+
+    <!-- Review Form -->
+    <form id="reviewForm">
+        <div class="form-group">
+            <label for="Food">Enter the name of the food:</label>
+            <textarea class="form-control" id="foodName" rows="1" required placeholder="Write the name of the food here..."></textarea>
+            <label for="ratind">Rate your food:</label>
+            <textarea class="form-control" id="rating" rows="1" required placeholder="Rating..."></textarea>
+            <label for="review">Write a Review:</label>
+            <textarea class="form-control" id="comments" rows="3" required placeholder="Write your review here..."></textarea>                        
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+        <button type="button" id="clearForm" class="btn btn-secondary">Clear</button>
+    </form>
+
+    <hr>
+
+    <!-- Display Reviews -->
+    <h2>Current Reviews</h2>
+    <div id="reviewsList"></div>
+</div>
+
+<!-- Include jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/jscriptfiles/reviews.js"></script>
+</body>
+</html>
